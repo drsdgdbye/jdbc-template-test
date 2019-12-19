@@ -5,11 +5,10 @@ import ru.drsdgdbye.jdbctemplatetest.entities.Customer;
 import java.util.List;
 
 public interface CustomerRepository {
-    void save(Customer customer);
+    int save(Customer customer);
 
-    void update(Customer customer);
+    int update(Customer customer);
 
-    void deleteById(Integer id);
-
+    int deleteById(Integer id);
     List<Customer> findAll();
 }
