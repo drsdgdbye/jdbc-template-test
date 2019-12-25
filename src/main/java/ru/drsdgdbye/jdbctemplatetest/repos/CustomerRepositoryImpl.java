@@ -27,6 +27,13 @@ public class CustomerRepositoryImpl implements CustomerRepository {
     }
 
     @Override
+    public boolean isPresent(Integer id) {
+        Integer count = jdbcTemplate.queryForObject(
+                "select count(*) from customers where id = ? limit 1)", Integer.class, id);
+        return count > 0;
+    }
+
+    @Override
     public int update(Customer customer) {
         identityMap.replace(customer.getId(), customer);
         return jdbcTemplate.update("update customers set name = ?, lastname = ?,  email = ? where id = ?",

@@ -7,6 +7,8 @@ import java.util.List;
 public interface CustomerRepository {
     int save(Customer customer);
 
+    boolean isPresent(Integer id);
+
     int update(Customer customer);
 
     int deleteById(Integer id);
